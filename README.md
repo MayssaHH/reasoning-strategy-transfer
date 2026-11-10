@@ -6,7 +6,7 @@ We study whether a generic strategy cue helps an LLM solve a transformed problem
 
 The project starts with mathematical problems that admit at least two valid, genuinely different approaches. For a selected strategy, we compare transformations that preserve its mechanism with transformations that keep the problem superficially similar but make that strategy insufficient.
 
-**Current stage: collecting and reviewing candidate problem families.** This repository currently contains the templates, schema, and contribution workflow. Family records, experiments, and results will be added as the work progresses.
+**Current stage: collecting and reviewing candidate problem families.** This repository contains candidate family records, templates, a schema, and the contribution workflow. Experiments and results will be added as the work progresses.
 
 ## Research questions
 
@@ -64,7 +64,7 @@ These are planned stages. The current collection template records a working anal
 
 | Path | Purpose |
 | --- | --- |
-| [`families/`](families/) | One JSON file per original problem; no families added yet. |
+| [`families/`](families/) | One JSON file per original problem, including its review status. |
 | [`templates/family_template.json`](templates/family_template.json) | Clean template to copy and fill. |
 | [`templates/family_template_annotated.jsonc`](templates/family_template_annotated.jsonc) | Field-by-field instructions, with comments. |
 | [`schema/family.schema.json`](schema/family.schema.json) | JSON Schema for structural checks. |
