@@ -1,0 +1,74 @@
+{
+  "family_id": null,
+  "source": {
+    "file": "helmsman12/LLM_reasoning_diversity/data/train.jsonl",
+    "problem_id": null
+  },
+  "collected_by": null,
+  "domain": null,
+  "analysis_by": null,
+  "problem": {
+    "statement": null,
+    "reference_answer": null,
+    "interpretation_notes": []
+  },
+  "approaches": [
+    {
+      "approach_id": "A1",
+      "name": null,
+      "core_idea": null,
+      "plan": [],
+      "solution_check": null,
+      "validity_check": {
+        "status": null,
+        "reason": null
+      }
+    }
+  ],
+  "clustering": {
+    "groups": [
+      {
+        "cluster_id": "C1",
+        "approach_ids": [],
+        "mechanism": null,
+        "reason": null
+      }
+    ],
+    "unassigned": [],
+    "comparisons": []
+  },
+  "selection": {
+    "recommendation": null,
+    "distinct_approach_pair": [],
+    "reason": null
+  },
+  "transformations": {
+    "Tp": [
+      {
+        "status": "not_started",
+        "target_cluster_ids": [],
+        "idea": null,
+        "reason": null,
+        "expected_cluster_id": null,
+        "open_questions": [],
+        "variant": null
+      }
+    ],
+    "Tc": [
+      {
+        "status": "not_started",
+        "target_cluster_ids": [],
+        "idea": null,
+        "reason": null,
+        "expected_cluster_id": null,
+        "open_questions": [],
+        "variant": null
+      }
+    ]
+  },
+  "expert_review": {
+    "reviewer": null,
+    "decision": "pending",
+    "comments": null
+  }
+}

@@ -1,0 +1,357 @@
+// FAMILY TEMPLATE — STUDENT INSTRUCTIONS
+// Read this annotated .jsonc file; fill family_template.json for your submission.
+// The comments are guidance, not extra data fields. Standard JSON submissions must not contain comments.
+// After comments are removed, this file has exactly the same content as the clean blank template.
+//
+// CURRENT HOMEWORK
+// Collect five candidate problems in your assigned domain. Preserve and assess every source approach.
+// Defend at least two valid, genuinely different routes for each shortlisted candidate.
+// Record preliminary Tp and Tc ideas; an unresolved Tc may be marked blocked with an explanation.
+// Do not claim a held candidate meets the criterion, and do not silently repair source plans.
+//
+// AGREED TRANSFORMATION RULES
+// Choose a fixed, valid source approach cluster z. Paired Tp and Tc proposals refer to that same z.
+// Tp may change wording, names/context, notation, representation, or numbers, even changing the answer,
+// provided z's applicability conditions and essential reasoning remain valid.
+// Tc keeps the setup recognizably similar but changes an essential condition so z no longer provides
+// a complete valid solving route under its fixed definition. Another original cluster may still work.
+// You do not have to preserve every original approach under Tp or invalidate every original one under
+// Tc.
+// Choosing to use another method, changing the answer, or increasing computation alone is not Tc.
+// Do not redefine the cluster after seeing the edit to make a transformation label appear correct.
+//
+// HOW TO FILL THE FILE
+// NOW = fill during collection; IDEAS NOW = tentative proposals; LATER = leave null;
+// EXPERT ONLY = leave pending for Mayssa. Use null for unknown scalar values and [] for empty lists.
+// Duplicate the approach and group objects as needed. Approach IDs (A1...) and cluster IDs (C1...)
+// are local to a family. Every source approach must be in exactly one group or in unassigned.
+// All statements and assessments remain subject to mathematical review.
+//
+
+{
+  // [NOW] Your unique ID for this candidate, for example "train_0057". Keep it stable while reviewing
+  // the same original problem; transformed versions belong inside this family, not in new
+  // source-family records.
+  "family_id": null,
+
+  // [NOW] Where the original problem can be retrieved. Store only its file location and exact
+  // identifier.
+  "source": {
+    // [NOW] The source repository/file path or direct file URL. The prefilled path points to the
+    // released multi-approach dataset; replace it only when using another source.
+    "file": "helmsman12/LLM_reasoning_diversity/data/train.jsonl",
+    // [NOW] The exact ID in the specified source file. For train.jsonl, use the record's "index"
+    // value, for example 57, not the row number. This is not an independently recovered upstream
+    // MATH ID.
+    "problem_id": null
+  },
+
+  // [NOW] The student who selected and assembled the candidate. Enter your name.
+  "collected_by": null,
+
+  // [NOW] The problem's main mathematical subject, using your assigned domain name, for example
+  // "probability", "combinatorics", "geometry", or "algebra". Classify the problem, not the technique
+  // of one solution. These are team-assigned labels, not native labels in this file.
+  "domain": null,
+
+  // [NOW] Who produced the working mathematical analysis. Name the student and any model assistance
+  // actually used, for example "Student name; ChatGPT-assisted". This does not record expert approval.
+  "analysis_by": null,
+
+  // [NOW] The unchanged source problem, its source answer, and any interpretation issues.
+  "problem": {
+    // [NOW] Copy the full original problem statement faithfully, including assumptions and
+    // mathematical notation. Do not replace it with a proposed transformed problem or silently
+    // repair it.
+    "statement": null,
+    // [NOW] Copy the source answer as a string. If a check disagrees with it, keep the source answer
+    // and explain the discrepancy in interpretation_notes and solution_check; do not silently
+    // overwrite it.
+    "reference_answer": null,
+    // [NOW IF NEEDED] A list of ambiguities, implicit conventions, or source-answer issues that
+    // affect the mathematics, one string per issue. Explain any interpretation you use. Leave [] if
+    // there are no such notes; do not invent assumptions merely to make a solution work.
+    "interpretation_notes": []
+  },
+
+  // [NOW] Include every source-listed approach in its original order, even if it is flawed or
+  // redundant. Duplicate this object for A2, A3, A4, and so on. A selected pair later does not permit
+  // dropping the others.
+  "approaches": [
+    {
+      // [NOW] A local identifier such as "A1", "A2", or "A3", following the original source order.
+      // These IDs identify source plans within this family, not shared strategies across different
+      // problems.
+      "approach_id": "A1",
+      // [NOW] Copy the source approach's name. A different name alone does not establish a
+      // different mathematical approach.
+      "name": null,
+      // [NOW] Copy the source's core-idea description. Evaluate it in your checks rather than
+      // rewriting it to match a preferred cluster.
+      "core_idea": null,
+      // [NOW] Copy the ordered source steps as a list of strings. Preserve errors or omissions in
+      // the source text; document corrections or completions in solution_check and
+      // validity_check.reason.
+      "plan": [],
+      // [NOW] Write the mathematical evidence: a worked derivation, a precise
+      // error/counterexample, or the specific missing step. An answer or a claim of validity is
+      // not enough. Clearly label any completion or correction you add to the source plan.
+      "solution_check": null,
+      // [NOW] Assess this plan's mathematical validity, separately from whether it differs from
+      // another approach.
+      "validity_check": {
+        // [NOW] Use "valid" for a supported derivation; "invalid" for an identified error in the
+        // stated reasoning; "incomplete" when essential steps are missing; or "uncertain" when
+        // validity is unresolved. Leave null only before checking.
+        "status": null,
+        // [NOW] Explain the status, pointing to the decisive calculation, error, or missing
+        // justification. Distinguish a valid completion from a repair that changes faulty source
+        // reasoning. A valid plan can still belong to the same cluster as another.
+        "reason": null
+      }
+    }
+  ],
+
+  // [NOW] Your proposed grouping by central mathematical reasoning. Assess the plans rather than
+  // adopting the source's uniqueness count. Every source approach must appear in exactly one group or
+  // in unassigned.
+  "clustering": {
+    // [NOW] One object per supported mechanism cluster. Put valid approaches together when they have
+    // the same central route despite execution or presentation changes. Keep genuinely different
+    // routes separate. Do not count invalid or incomplete plans as extra valid clusters.
+    "groups": [
+      {
+        // [NOW] A local ID such as "C1" or "C2". C1 in another problem is not automatically the
+        // same strategy. Keep IDs stable when later transformation proposals reference them.
+        "cluster_id": "C1",
+        // [NOW] The IDs of approaches in this group, for example ["A1", "A3"]. Use only IDs
+        // present in approaches; do not place an approach in more than one group.
+        "approach_ids": [],
+        // [NOW] Define the shared solving route: its central mathematical justification,
+        // essential steps, and the conditions it relies on. Be more specific than 'use algebra'.
+        // This fixed definition is what Tp will preserve or Tc will challenge.
+        "mechanism": null,
+        // [NOW] Explain the grouping. For merged plans, identify why their differences do not
+        // change the central reasoning. For a separate route, identify its distinctive
+        // mechanism. A singleton group alone does not prove distinctness; justify the separation
+        // in comparisons.
+        "reason": null
+      }
+    ],
+    // [NOW IF NEEDED] List every plan that cannot yet be placed in a supported group, with an
+    // approach_id and reason. This includes invalid/incomplete plans and valid plans whose
+    // distinctness remains unresolved. Use [] if all approaches are confidently grouped.
+    "unassigned": [
+      // Example entry only. Remove the comment markers only when adding a real entry, and replace
+      // its content with your own evidence.
+      // {
+      //   [NOW IF NEEDED] The existing approach ID that is not placed in a group, for example "A3".
+      //   "approach_id": "A3",
+      // 
+      //   [NOW IF NEEDED] Explain the precise obstacle: mathematical error, missing derivation, or
+      //   unresolved relation to another mechanism. A valid but unassigned plan is not automatically a new
+      //   cluster.
+      //   "reason": "Valid completion, but its distinctness from A1 remains unresolved."
+      // }
+    ],
+    // [NOW] Record pairwise evidence for the grouping. Provide enough comparisons to justify your
+    // merges, splits, selected distinct pair, and unresolved cases without repeating identical
+    // explanations.
+    "comparisons": [
+      // Example entry only. Remove the comment markers only when adding a real entry, and replace
+      // its content with your own evidence.
+      // {
+      //   [NOW] Exactly two distinct existing approach IDs, for example ["A1", "A2"].
+      //   "approach_ids": ["A1", "A2"],
+      // 
+      //   [NOW] Use "same" for the same central route; "different" for a substantive change in mathematical
+      //   reasoning; "uncertain" for an unresolved boundary between executable routes; or
+      //   "insufficient_evidence" when flawed or underspecified reasoning prevents the comparison.
+      //   "verdict": "different",
+      // 
+      //   [NOW] Identify the decisive shared step or difference. Notation, wording, reordering, or an
+      //   equivalent algebraic cleanup alone does not justify 'different'. Keep the verdict consistent with
+      //   the groups.
+      //   "reason": "Direct summation versus a symmetry-and-residual argument."
+      // }
+    ]
+  },
+
+  // [NOW] Your recommendation about retaining the whole original problem as a candidate, based on the
+  // validity and clustering evidence. This is not expert approval.
+  "selection": {
+    // [NOW] Use "shortlist" when at least two valid, genuinely distinct routes are supported; "hold"
+    // when more evidence or repair is needed; or "reject" when the current candidate should not be
+    // retained. Leave null before making a recommendation.
+    "recommendation": null,
+    // [NOW] Exactly two valid approach IDs from different supported groups that best demonstrate the
+    // selection criterion, for example ["A1", "A2"]. Keep all approaches in the record. Use [] when
+    // no defensible pair has been established; do not supply just one ID.
+    "distinct_approach_pair": [],
+    // [NOW] Explain why the evidence supports your recommendation. Identify the strongest pair and
+    // central distinction, or the blocker for a held/rejected candidate. An unresolved Tc idea alone
+    // does not invalidate a source problem's two-approach qualification.
+    "reason": null
+  },
+
+  // [IDEAS NOW] Proposals relative to selected source clusters, not all original approaches. For a
+  // paired Tp/Tc proposal, use the same fixed target mechanism. Keep each cluster definition fixed
+  // while designing edits. Complete statements, solutions, generation methods, and expert validation
+  // come later.
+  "transformations": {
+    // [IDEAS NOW] Mechanism-preserving ideas. Wording, names/context, notation, representation, and
+    // numerical parameters may change; the answer may change too. The selected mechanism's
+    // conditions and essential steps must still work. Other original approaches need not all be
+    // preserved.
+    "Tp": [
+      {
+        // [IDEAS NOW] Use "not_started", "idea", or "blocked" during collection. "idea" means
+        // proposed, not established. "blocked" means an identified obstacle, explained below.
+        // Later, "draft" means a developed but unvalidated variant; "validated" requires
+        // explicit mathematical review, not a JSON-format check.
+        "status": "not_started",
+        // [IDEAS NOW] The source cluster you intend to preserve, normally a single ID such as
+        // ["C2"]. Reference clustering.groups, not an approach ID. If you intentionally target
+        // several clusters, justify preservation for each. For the comparison pair, Tc should
+        // target the same selected cluster.
+        "target_cluster_ids": [],
+        // [IDEAS NOW] Describe the exact proposed surface or parameter edit. State what changes
+        // and what stays fixed. A complete transformed statement is not required yet. Leave null
+        // only when no concrete idea is available, and explain the obstacle in open_questions.
+        "idea": null,
+        // [IDEAS NOW] Explain why the targeted mechanism should remain applicable: identify its
+        // conditions and map the essential steps to the proposed edit. A numerical change is not
+        // automatically preserving. Write an expectation rather than claiming a proof you have
+        // not supplied.
+        "reason": null,
+        // [IDEAS NOW] The selected source cluster expected to solve the variant, normally the
+        // same ID as the single target, for example "C2". Use null if not yet established. If
+        // several targets are listed, name a primary one here and discuss the others in reason.
+        "expected_cluster_id": null,
+        // [IDEAS NOW] List remaining checks or blockers, such as parameter validity, unchanged
+        // assumptions, or a required derivation. Use [] only if no questions are currently
+        // identified; an empty list is not validation.
+        "open_questions": [],
+        // [LATER] Leave null for the collection stage. Later this holds the developed
+        // statement, checked reference answer, worked solutions, and construction method. Do not
+        // fill it with an invented completed variant.
+        // LATER ONLY — the following commented example documents the future object; keep the
+        // actual value null now.
+        // {
+        //   [LATER] The exact full transformed problem statement, including domains and assumptions. It must
+        //   be understandable without reading the proposed edit.
+        //   "statement": "Full transformed statement, to be written later.",
+        // 
+        //   [LATER] The checked answer to this transformed problem, stored as a string; it need not equal the
+        //   source answer.
+        //   "reference_answer": "Checked answer to the variant.",
+        // 
+        //   [LATER] A list of checked solution objects for the variant. For Tp, include a solution using the
+        //   target mechanism; for Tc, include a valid alternative and explain target failure in the proposal's
+        //   reason.
+        //   "worked_solutions": [
+        //     {
+        //       [LATER] A clear name or existing cluster ID for the route actually used. Describe a new
+        //       route explicitly rather than implying that it is a verified source cluster.
+        //       "approach": "Name or existing cluster ID of the solving route.",
+        //       [LATER] The ordered steps of a complete derivation, one string per step. Include essential
+        //       justifications and assumptions rather than only the final answer.
+        //       "steps": ["First justified step.", "Further steps and conclusion."]
+        //     }
+        //   ],
+        // 
+        //   [LATER] How the transformation was constructed: the actual edit rule, manual steps, prompt, or
+        //   script used. State what was done, not a planned method.
+        //   "method": "The actual edit rule, prompt, or script used."
+        // }
+        "variant": null
+      }
+    ],
+    // [IDEAS NOW] Mechanism-changing ideas. Keep the setup recognizably similar while changing an
+    // assumption, constraint, parameter, or goal that makes the selected mechanism no longer
+    // applicable as a complete solving route. Another original cluster may still solve the variant;
+    // no entirely new approach is required.
+    "Tc": [
+      {
+        // [IDEAS NOW] Use "not_started", "idea", or "blocked" during collection. A plausible
+        // edit is only an "idea". Use "blocked" if the target still works or no convincing
+        // change is available, and state why. Reserve "draft" and "validated" for development
+        // and explicit mathematical validation later.
+        "status": "not_started",
+        // [IDEAS NOW] The selected source cluster intended to fail, normally a single ID such as
+        // ["C2"]. It need not include every source cluster. If several clusters are
+        // intentionally targeted, justify failure for each. Pair with Tp targeting the same
+        // fixed mechanism.
+        "target_cluster_ids": [],
+        // [IDEAS NOW] Describe the proposed small edit and what makes the problem still look
+        // similar. Do not simply request 'use another method' on the unchanged problem. A new
+        // answer or a longer calculation alone does not establish a mechanism change.
+        "idea": null,
+        // [IDEAS NOW] Identify the exact assumption or essential step that should fail, and
+        // explain why ordinary substitutions or routine execution adjustments do not rescue the
+        // fixed target route. Suggest how a different route could solve the variant. Another
+        // route working is not, by itself, evidence that the target fails.
+        "reason": null,
+        // [IDEAS NOW] An existing source cluster expected to solve the changed problem, for
+        // example "C1" when the target is C2. It may be another original cluster. Use null if
+        // the alternative is unknown or not yet an existing cluster; describe a proposed new
+        // route in idea/reason rather than inventing an undefined ID. For a blocked proposal,
+        // recording the same cluster as the target can document why the edit failed.
+        "expected_cluster_id": null,
+        // [IDEAS NOW] List unsettled mathematical checks: whether the target can adapt, whether
+        // the edit stays sufficiently similar, whether the alternative works, and any ambiguity
+        // in strategy granularity. The rule allowing another original cluster to remain valid is
+        // already agreed and is not an open question.
+        "open_questions": [],
+        // [LATER] Leave null for the collection stage. Later store the exact changed
+        // statement, checked answer, alternative worked solution(s), and construction method.
+        // Its correctness and target failure still need mathematical review.
+        // LATER ONLY — the following commented example documents the future object; keep the
+        // actual value null now.
+        // {
+        //   [LATER] The exact full transformed problem statement, including domains and assumptions. It must
+        //   be understandable without reading the proposed edit.
+        //   "statement": "Full transformed statement, to be written later.",
+        // 
+        //   [LATER] The checked answer to this transformed problem, stored as a string; it need not equal the
+        //   source answer.
+        //   "reference_answer": "Checked answer to the variant.",
+        // 
+        //   [LATER] A list of checked solution objects for the variant. For Tp, include a solution using the
+        //   target mechanism; for Tc, include a valid alternative and explain target failure in the proposal's
+        //   reason.
+        //   "worked_solutions": [
+        //     {
+        //       [LATER] A clear name or existing cluster ID for the route actually used. Describe a new
+        //       route explicitly rather than implying that it is a verified source cluster.
+        //       "approach": "Name or existing cluster ID of the solving route.",
+        //       [LATER] The ordered steps of a complete derivation, one string per step. Include essential
+        //       justifications and assumptions rather than only the final answer.
+        //       "steps": ["First justified step.", "Further steps and conclusion."]
+        //     }
+        //   ],
+        // 
+        //   [LATER] How the transformation was constructed: the actual edit rule, manual steps, prompt, or
+        //   script used. State what was done, not a planned method.
+        //   "method": "The actual edit rule, prompt, or script used."
+        // }
+        "variant": null
+      }
+    ]
+  },
+
+  // [EXPERT ONLY] Mayssa's separate mathematical review of the candidate. Students leave the defaults
+  // unchanged. A shortlist recommendation or collected_by='Mayssa' is not an expert approval.
+  "expert_review": {
+    // [EXPERT ONLY] Name of the person who actually performed the expert review. Leave null until
+    // that review occurs.
+    "reviewer": null,
+    // [EXPERT ONLY] Keep "pending" until expert review. The reviewer may later use "accept",
+    // "revise", or "reject" for the record at its current stage. Accepting a source candidate does
+    // not automatically validate its transformation proposals.
+    "decision": "pending",
+    // [EXPERT ONLY] Leave null for the student submission. The expert records approval scope,
+    // corrections, and unresolved issues, referring to approach or cluster IDs where helpful.
+    "comments": null
+  }
+}

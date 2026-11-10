@@ -1,0 +1,18 @@
+# Local credentials and environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Editor/OS artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Keep local full source downloads and generated outputs outside version control
+local_data/
+outputs/
