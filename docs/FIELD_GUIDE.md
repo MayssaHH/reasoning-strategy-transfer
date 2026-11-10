@@ -84,10 +84,6 @@ The student who selected and assembled the candidate. Enter your name.
 
 The problem's main mathematical subject, using your assigned domain name, for example "probability", "combinatorics", "geometry", or "algebra". Classify the problem, not the technique of one solution. These are team-assigned labels, not native labels in this file.
 
-**`analysis_by` — NOW**
-
-Who produced the working mathematical analysis. Name the student and any model assistance actually used, for example "Student name; ChatGPT-assisted". This does not record expert approval.
-
 
 ### The original problem
 
@@ -390,6 +386,6 @@ How the transformation was constructed: the actual edit rule, manual steps, prom
 
 Check that every source approach is retained and appears exactly once in either a group or
 `unassigned`; that all referenced approach and cluster IDs exist; and that a shortlisted record names
-two valid approaches from different groups. Keep any model contribution explicit in `analysis_by`.
+two valid approaches from different groups.
 Leave Mayssa's decision pending and explain unresolved transformation ideas rather than inventing
 completed statements or checks.

@@ -15,7 +15,7 @@ Which fixed cluster do Tp and Tc target? What remains unresolved?
 - [ ] One family file per original problem, with no duplicate source ID.
 - [ ] All source approaches are retained and checked or explicitly flagged.
 - [ ] Clustering decisions and unresolved cases are justified.
-- [ ] Collected-by and analysis-by attribution are accurate.
+- [ ] The collector is correctly identified in `collected_by`.
 - [ ] Tp/Tc are clearly marked as ideas, blocked, or later-stage work.
 - [ ] Expert-review fields do not claim an unperformed review.
 - [ ] The submission is valid JSON and follows the agreed template.

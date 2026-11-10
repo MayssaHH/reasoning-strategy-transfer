@@ -54,10 +54,6 @@
   // of one solution. These are team-assigned labels, not native labels in this file.
   "domain": null,
 
-  // [NOW] Who produced the working mathematical analysis. Name the student and any model assistance
-  // actually used, for example "Student name; ChatGPT-assisted". This does not record expert approval.
-  "analysis_by": null,
-
   // [NOW] The unchanged source problem, its source answer, and any interpretation issues.
   "problem": {
     // [NOW] Copy the full original problem statement faithfully, including assumptions and

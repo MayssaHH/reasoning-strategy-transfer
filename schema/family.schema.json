@@ -48,13 +48,6 @@
       ],
       "description": "[NOW] The problem's main mathematical subject, using your assigned domain name, for example \"probability\", \"combinatorics\", \"geometry\", or \"algebra\". Classify the problem, not the technique of one solution. These are team-assigned labels, not native labels in this file."
     },
-    "analysis_by": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "description": "[NOW] Who produced the working mathematical analysis. Name the student and any model assistance actually used, for example \"Student name; ChatGPT-assisted\". This does not record expert approval."
-    },
     "problem": {
       "type": "object",
       "properties": {
@@ -635,7 +628,6 @@
     "source",
     "collected_by",
     "domain",
-    "analysis_by",
     "problem",
     "approaches",
     "clustering",

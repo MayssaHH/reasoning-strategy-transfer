@@ -10,7 +10,7 @@ Create a working branch such as `families/your-name-train-0123`. Copy `templates
 
 Preserve every source approach and document any errors or completions in your checks. Identify at least two valid, genuinely different approaches for a shortlist recommendation. Record tentative Tp/Tc ideas for the same selected cluster; leave `variant` null during collection. A held candidate belongs in the repository as a clearly held record, not counted among five qualifying submissions.
 
-Use your actual name for `collected_by`; state who performed the analysis and any model assistance in `analysis_by`. Expert review stays pending until it is actually performed. No automatic check certifies the mathematics.
+Use your actual name for `collected_by`. Expert review stays pending until it is actually performed. No automatic check certifies the mathematics.
 
 ## 3. Check the submission
 

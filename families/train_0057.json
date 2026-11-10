@@ -6,7 +6,6 @@
   },
   "collected_by": "Mayssa",
   "domain": "probability",
-  "analysis_by": "ChatGPT",
   "problem": {
     "statement": "A red ball and a green ball are randomly and independently tossed into bins numbered with the positive integers so that for each ball, the probability that it is tossed into bin $k$ is $2^{-k}$ for $k = 1,2,3....$  What is the probability that the red ball is tossed into a higher-numbered bin than the green ball?",
     "reference_answer": "\\frac{1}{3}",
