@@ -1,0 +1,234 @@
+{
+  "family_id": "train_0035",
+  "source": {
+    "file": "helmsman12/LLM_reasoning_diversity/data/train.jsonl",
+    "problem_id": 35
+  },
+  "collected_by": "Sidra",
+  "domain": "algebra",
+  "problem": {
+    "statement": "$\\frac{2+4+6+\\cdots + 34}{3+6+9+\\cdots+51}=$",
+    "reference_answer": "$\\frac{2}{3}$",
+    "interpretation_notes": [
+      "The stem ends with '=' — it comes from a multiple-choice item whose options are not included in the source. The derivations treat it as: evaluate the ratio exactly."
+    ]
+  },
+  "approaches": [
+    {
+      "approach_id": "A1",
+      "name": "Use arithmetic series sum formulas and simplify",
+      "core_idea": "Recognize each numerator and denominator as an arithmetic series. Use the standard formula for the sum of an arithmetic progression, then reduce the resulting fraction by canceling common factors.",
+      "plan": [
+        "Identify first term, last term, and common difference for the numerator sequence 2,4,...,34",
+        "Count the number of terms in the numerator using n = (last−first)/difference + 1",
+        "Apply the arithmetic series sum formula S = n·(first+last)/2 to the numerator",
+        "Repeat the same three steps for the denominator sequence 3,6,...,51",
+        "Write the ratio as (sum of numerator)/(sum of denominator) using the two formulas",
+        "Factor out common numerical factors from numerator and denominator sums",
+        "Cancel common factors to obtain the simplified value of the ratio"
+      ],
+      "solution_check": "Numerator: 2, 4, ..., 34 has n = (34-2)/2 + 1 = 17 terms, sum 17(2+34)/2 = 306. Denominator: 3, 6, ..., 51 has 17 terms, sum 17(3+51)/2 = 459. 306/459 = 2/3 (both divisible by 153).",
+      "validity_check": {
+        "status": "valid",
+        "reason": "Evaluate each arithmetic series with the AP sum formula, then reduce.\n\nReview additions or clarifications:\n- Computed both sums explicitly."
+      }
+    },
+    {
+      "approach_id": "A2",
+      "name": "Factor out common multiples before summing",
+      "core_idea": "Notice each series is a constant multiple of a simpler series of consecutive integers. Factor out those constants first, reduce the ratio, and then sum the simpler integer series (or use their formula) to simplify further.",
+      "plan": [
+        "Express 2+4+6+...+34 as 2(1+2+3+...+17) by factoring 2 out of each term",
+        "Express 3+6+9+...+51 as 3(1+2+3+...+17) by factoring 3 out of each term",
+        "Substitute these factored forms into the original fraction",
+        "Cancel the common factor (1+2+...+17) from numerator and denominator without needing its explicit value",
+        "Simplify the remaining constant fraction 2/3"
+      ],
+      "solution_check": "2+4+...+34 = 2(1+2+...+17) and 3+6+...+51 = 3(1+2+...+17). The common factor 1+2+...+17 is nonzero and cancels, leaving 2/3.",
+      "validity_check": {
+        "status": "valid",
+        "reason": "Factor each series as a constant times the same base sum and cancel it without evaluating it."
+      }
+    },
+    {
+      "approach_id": "A3",
+      "name": "Use term-by-term ratio via index representation",
+      "core_idea": "Index each term of both sequences with the same index k, showing that the two sums are constant multiples of the same sum over k. Then cancel the common sum directly at the symbolic level, avoiding any explicit summation formulas.",
+      "plan": [
+        "Represent the numerator terms as 2,4,...,34 = Σ_{k=1}^{17} 2k",
+        "Represent the denominator terms as 3,6,...,51 = Σ_{k=1}^{17} 3k",
+        "Factor constants out of each summation: Σ_{k=1}^{17} 2k = 2 Σ_{k=1}^{17} k and Σ_{k=1}^{17} 3k = 3 Σ_{k=1}^{17} k",
+        "Form the ratio (2 Σ k)/(3 Σ k) with the common Σ_{k=1}^{17} k in numerator and denominator",
+        "Cancel the common summation symbolically",
+        "Reduce the remaining ratio 2/3"
+      ],
+      "solution_check": "Σ_{k=1}^{17} 2k = 2Σk and Σ_{k=1}^{17} 3k = 3Σk; cancelling Σ_{k=1}^{17} k (= 153 ≠ 0) gives 2/3.",
+      "validity_check": {
+        "status": "valid",
+        "reason": "Same factor-and-cancel argument written in sigma notation.\n\nIssues noted in the review:\n- Only the notation differs from A2."
+      }
+    },
+    {
+      "approach_id": "A4",
+      "name": "Scale one series to match the other and compare",
+      "core_idea": "Observe that every term in the numerator is a constant multiple of the corresponding term in a rescaled version of the denominator (or vice versa). Use proportionality between the two series to deduce the ratio of their sums without computing any sum.",
+      "plan": [
+        "List both sequences with matching indices: numerator a_k = 2k, denominator b_k = 3k for k=1,...,17",
+        "Note that for each k, a_k / b_k = (2k)/(3k) = 2/3 is constant and independent of k",
+        "Use the property that if all corresponding terms of two finite sequences are in a constant ratio c, then the sums are also in ratio c",
+        "Conclude that (sum of a_k)/(sum of b_k) = 2/3 directly from this constant termwise ratio",
+        "State the resulting value of the given fraction as 2/3"
+      ],
+      "solution_check": "a_k = 2k, b_k = 3k for k = 1..17, so a_k = (2/3) b_k for every k. Then Σa_k = (2/3)Σb_k, hence the ratio is 2/3.",
+      "validity_check": {
+        "status": "valid",
+        "reason": "Use the constant termwise ratio to conclude the ratio of the sums.\n\nIssues noted in the review:\n- The step 'constant termwise ratio implies the same ratio of sums' is the distributive law Σ c·b_k = cΣb_k, i.e. the same proportionality-and-cancel step as A2."
+      }
+    }
+  ],
+  "clustering": {
+    "groups": [
+      {
+        "cluster_id": "C1",
+        "approach_ids": [
+          "A1"
+        ],
+        "mechanism": "Explicit evaluation: count terms and apply the arithmetic-series sum formula S = n(first + last)/2 to numerator and denominator separately, then reduce the resulting fraction. Does not need the two series to be related.",
+        "reason": "The only plan that computes both sums; it works even when numerator and denominator are unrelated series."
+      },
+      {
+        "cluster_id": "C2",
+        "approach_ids": [
+          "A2",
+          "A3",
+          "A4"
+        ],
+        "mechanism": "Proportionality without summation: write the numerator as a constant multiple of the denominator (directly, or both as multiples of a common base sum) and cancel. Requires the two series to be term-by-term proportional with the same number of terms.",
+        "reason": "All three never evaluate a sum; they differ only in whether the common factor is written as 1+...+17, as Σk, or as a termwise constant 2/3."
+      }
+    ],
+    "unassigned": [],
+    "comparisons": [
+      {
+        "approach_ids": [
+          "A1",
+          "A2"
+        ],
+        "verdict": "different",
+        "reason": "Computing both sums versus cancelling a common factor without summing."
+      },
+      {
+        "approach_ids": [
+          "A1",
+          "A3"
+        ],
+        "verdict": "different",
+        "reason": "AP sum formula versus symbolic cancellation of the common Σk."
+      },
+      {
+        "approach_ids": [
+          "A1",
+          "A4"
+        ],
+        "verdict": "different",
+        "reason": "Explicit evaluation versus termwise proportionality."
+      },
+      {
+        "approach_ids": [
+          "A2",
+          "A3"
+        ],
+        "verdict": "same",
+        "reason": "Identical factor-and-cancel argument; sigma notation is only presentation."
+      },
+      {
+        "approach_ids": [
+          "A2",
+          "A4"
+        ],
+        "verdict": "same",
+        "reason": "Both rest on the series being proportional: 2T/3T versus Σ(2/3)b_k = (2/3)Σb_k is the same distributive cancellation. (The dataset judge separated A4.)"
+      },
+      {
+        "approach_ids": [
+          "A3",
+          "A4"
+        ],
+        "verdict": "same",
+        "reason": "Same proportionality argument; notation and the order of factoring differ."
+      }
+    ]
+  },
+  "selection": {
+    "recommendation": "shortlist",
+    "distinct_approach_pair": [
+      "A1",
+      "A2"
+    ],
+    "reason": "A1 evaluates both series; A2 (with A3, A4) cancels a common factor and never sums. These are genuinely different and both valid. The dataset counts three unique approaches; this draft merges A4 into the proportionality cluster."
+  },
+  "transformations": {
+    "Tp": [
+      {
+        "status": "validated",
+        "target_cluster_ids": [
+          "C2"
+        ],
+        "idea": "Replace the arithmetic sums with sums of reciprocal products: numerator terms 1/[(2k)(2k+2)] and denominator terms 1/[(3k)(3k+3)], each for k=1,...,20. The summands are no longer arithmetic progressions, but corresponding terms remain proportional.",
+        "reason": "For each k, a_k=1/[4k(k+1)] and b_k=1/[9k(k+1)], so a_k=(9/4)b_k. Both sums have the same 20 indices and the shared base sum is positive. C2 therefore determines the ratio as 9/4 without evaluating either sum. This changes the representation and sequence type while preserving the proportionality-and-cancellation mechanism. Recognizing proportionality requires factoring reciprocal products; telescoping is possible but unnecessary. Greater empirical difficulty or a benefit from a strategy cue has not been established.",
+        "expected_cluster_id": "C2",
+        "open_questions": [],
+        "variant": {
+          "statement": "Evaluate $\\frac{\\frac{1}{2\\cdot4}+\\frac{1}{4\\cdot6}+\\cdots+\\frac{1}{40\\cdot42}}{\\frac{1}{3\\cdot6}+\\frac{1}{6\\cdot9}+\\cdots+\\frac{1}{60\\cdot63}}$.",
+          "reference_answer": "\\frac{9}{4}",
+          "worked_solutions": [
+            {
+              "approach": "C2 — Proportionality and common-factor cancellation",
+              "steps": [
+                "Index both sums by k=1,...,20. Their terms are a_k=1/[(2k)(2k+2)] and b_k=1/[(3k)(3k+3)].",
+                "Factor the products: (2k)(2k+2)=4k(k+1), whereas (3k)(3k+3)=9k(k+1).",
+                "Let T=sum_{k=1}^{20}1/[k(k+1)]. Every summand is positive, so T>0.",
+                "The numerator is T/4 and the denominator is T/9.",
+                "Cancel the nonzero common factor T: (T/4)/(T/9)=9/4. Neither sum needs to be evaluated."
+              ]
+            }
+          ],
+          "method": "Manually replaced Sidra's initial parameter-change proposal with reciprocal-product sums, as presented to and approved by Mayssa. Chose matching index ranges and scaled factors so that the two summands share 1/[k(k+1)] and differ by constant factors 1/4 and 1/9. Kept the task of evaluating a ratio of sums and the target mechanism C2."
+        }
+      }
+    ],
+    "Tc": [
+      {
+        "status": "validated",
+        "target_cluster_ids": [
+          "C2"
+        ],
+        "idea": "Replace the numerator by the odd numbers: (1+3+5+...+33)/(3+6+9+...+51).\n\nProposed edits: Numerator terms change from 2k to 2k - 1; the denominator is unchanged; both still have 17 terms. Expected answer 17/27.",
+        "reason": "The numerator terms 2k-1 and denominator terms 3k are not termwise proportional. Factoring leaves an additive correction: (2T-17)/(3T)=2/3-17/(3T), where T=1+...+17. Therefore, the original proportionality-and-cancellation mechanism does not complete the solution by itself. Evaluating the arithmetic sums gives 289/459=17/27. Partial cancellation remains possible, but the residual term requires evaluation of T or another arithmetic-progression identity; it is not a complete solution by the fixed C2 mechanism alone.",
+        "expected_cluster_id": "C1",
+        "open_questions": [],
+        "variant": {
+          "statement": "Evaluate $\\frac{1+3+5+\\cdots+33}{3+6+9+\\cdots+51}$.",
+          "reference_answer": "\\frac{17}{27}",
+          "worked_solutions": [
+            {
+              "approach": "C1 — Explicit arithmetic-series evaluation",
+              "steps": [
+                "The numerator is an arithmetic progression with first term 1, last term 33, and common difference 2. Its number of terms is (33-1)/2+1=17.",
+                "The denominator is an arithmetic progression with first term 3, last term 51, and common difference 3. Its number of terms is (51-3)/3+1=17.",
+                "Apply the arithmetic-series formula to each sum: N=17(1+33)/2=289 and D=17(3+51)/2=459.",
+                "Since D is nonzero, N/D=289/459=17/27."
+              ]
+            }
+          ],
+          "method": "Retained Sidra's proposed edit from numerator terms 2k to 2k-1 for k=1,...,17, leaving the denominator unchanged. Incorporated Mayssa's approved correction to the mechanism-failure explanation: partial cancellation is possible, but an additive residual remains and prevents C2 from completing the solution alone. Supplied the full statement and C1 derivation."
+        }
+      }
+    ]
+  },
+  "expert_review": {
+    "reviewer": "Mayssa",
+    "decision": "accept",
+    "comments": "Mayssa approved the original approach clustering during Sidra's presentation: C1={A1} and C2={A2,A3,A4}. In the subsequent review, Mayssa approved the corrected Tc explanation distinguishing partial cancellation from a complete C2 solution, and approved the replacement reciprocal-product Tp with its proportionality proof and answer 9/4. The Tc answer is 17/27, obtained by C1. Both transformation mechanisms and the displayed mathematical justifications are approved; the validated statuses record that review, not schema validation or measured model-transfer performance. Source problem text, source approaches, and clustering are preserved."
+  }
+}
