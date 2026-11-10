@@ -173,38 +173,79 @@
   "transformations": {
     "Tp": [
       {
-        "status": "idea",
+        "status": "draft",
         "target_cluster_ids": [
           "C2"
         ],
-        "idea": "Change both ball distributions to the same normalized geometric law with parameter 1/3.\n\nProposed edits: Replace 2^(-k) for both balls by (1/3)*(2/3)^(k-1).",
-        "reason": "The variables remain independent and identically distributed, so swapping them should still preserve probability.",
+        "idea": "Replace the explicit geometric bin probabilities with an independent fair-coin procedure for each ball: place it in the bin numbered by the toss on which its second head appears. Keep the red/green labels, positive-integer bins, independence, and requested event R>G.",
+        "reason": "The two independent procedures have the same distribution, so (R,G)->(G,R) preserves joint probability and P(R>G)=P(G>R). C2 therefore still computes the target as (1-P(R=G))/2. The representation and distribution change: the model must derive P(X=k)=(k-1)/2^k for k>=2 rather than substitute a parameter into the original geometric law. C1 also remains applicable. The new tie series adds calculation difficulty; an evaluation should distinguish failure to recognize symmetry from failure to evaluate that series. No model-transfer result is claimed.",
         "expected_cluster_id": "C2",
         "open_questions": [
-          "Write the final statement and verify normalization and tie calculation in the later transformation phase."
+          "Obtain explicit expert mathematical review of the developed variant and its worked solutions before marking it validated."
         ],
-        "variant": null
+        "variant": {
+          "statement": "A red ball and a green ball are assigned independently to bins numbered with the positive integers. For each ball, a fair coin is tossed repeatedly until the second head appears; all tosses are independent, both within and between the two procedures. The ball is placed in the bin whose number equals the total number of tosses required. What is the probability that the red ball is placed in a higher-numbered bin than the green ball?",
+          "reference_answer": "\\frac{11}{27}",
+          "worked_solutions": [
+            {
+              "approach": "C2 — Swap symmetry and tie correction",
+              "steps": [
+                "Let R and G be the red and green bin indices. The procedure terminates almost surely: P(X>n)=(n+1)/2^n tends to zero, because the first n tosses must contain zero or one head.",
+                "For k>=2, stopping on toss k requires exactly one head among the first k-1 tosses and a head on toss k. Thus p_k=P(X=k)=(k-1)/2^k; p_1=0. Normalization follows from sum_{n>=1} n/2^(n+1)=1.",
+                "The two procedures are independent and identically distributed, so P(R=r,G=g)=p_r*p_g=p_g*p_r. Swapping R and G gives P(R>G)=P(G>R).",
+                "Compute ties: P(R=G)=sum_{k>=2}(k-1)^2/4^k=(1/4)*sum_{n>=1}n^2*(1/4)^n.",
+                "For |x|<1, differentiating the geometric series gives sum_{n>=1}n*x^n=x/(1-x)^2; applying x*d/dx again gives sum_{n>=1}n^2*x^n=x*(1+x)/(1-x)^3. At x=1/4 this is 20/27, so P(R=G)=5/27.",
+                "The events R>G, G>R, and R=G partition the sample space. Hence P(R>G)=(1-5/27)/2=11/27."
+              ]
+            },
+            {
+              "approach": "C1 — Direct favorable-mass calculation",
+              "steps": [
+                "For k>=2, P(G=k)=(k-1)/2^k. The event R>k means there are at most one head in the first k red tosses, so P(R>k)=(k+1)/2^k.",
+                "Independence gives P(R>G)=sum_{k>=2}P(G=k)*P(R>k)=sum_{k>=2}(k^2-1)/4^k.",
+                "The k=1 term is zero. Using sum_{k>=1}k^2/4^k=20/27 and sum_{k>=1}1/4^k=1/3 gives P(R>G)=20/27-1/3=11/27."
+              ]
+            }
+          ],
+          "method": "Manually constructed from the original by replacing both explicit bin laws with the same independent stopping procedure at the second head. Selected in discussion with Mayssa as a stronger representation-and-distribution change than changing a shared geometric parameter. Preserved the original ordering question and supplied the derived mass function, target-mechanism solution, and direct-summation cross-check. No strategy hint is embedded in the problem statement."
+        }
       }
     ],
     "Tc": [
       {
-        "status": "idea",
+        "status": "draft",
         "target_cluster_ids": [
           "C2"
         ],
-        "idea": "Keep the red law at 2^(-k) but change only the green law to (1/3)*(2/3)^(k-1).\n\nProposed edits: Change one marginal probability law; keep independence, bin labels, and target event.",
-        "reason": "Red-green swapping ceases to preserve point masses; direct summation remains a candidate alternative.",
+        "idea": "Keep the original bin setting, independence, red law P(R=k)=2^(-k), and question R>G. Change only the green law to P(G=k)=(1/3)*(2/3)^(k-1).",
+        "reason": "C2 relies on the joint distribution being invariant under swapping red and green. The changed marginals break that property: P(R=2,G=1)=1/12, whereas P(R=1,G=2)=1/9. The actual strict-order probabilities are P(R>G)=1/4 and P(G>R)=1/2, so they cannot be obtained by dividing the non-tie mass equally. Even with the correct tie probability 1/4, blindly applying C2 yields (1-1/4)/2=3/8, an incorrect answer. Updating the tie calculation alone therefore does not repair the fixed target route; a valid solution must account for unequal ordering masses, as C1 does. The setup deliberately stays close to the original. Whether a symmetry cue induces this error is an empirical question, not an established result.",
         "expected_cluster_id": "C1",
         "open_questions": [
-          "During later validation, verify the final statement and the failure of red-green swapping to preserve probability."
+          "Obtain explicit expert mathematical review of the developed variant, its worked solution, and the failure of C2 before marking it validated."
         ],
-        "variant": null
+        "variant": {
+          "statement": "A red ball and a green ball are randomly and independently tossed into bins numbered with the positive integers. The probability that the red ball is tossed into bin $k$ is $2^{-k}$, while the probability that the green ball is tossed into bin $k$ is $\\frac{1}{3}\\left(\\frac{2}{3}\\right)^{k-1}$, for $k=1,2,3,\\ldots$. What is the probability that the red ball is tossed into a higher-numbered bin than the green ball?",
+          "reference_answer": "\\frac{1}{4}",
+          "worked_solutions": [
+            {
+              "approach": "C1 — Direct favorable-mass calculation",
+              "steps": [
+                "Both marginal distributions are normalized: sum_{k>=1}2^(-k)=1 and sum_{k>=1}(1/3)*(2/3)^(k-1)=(1/3)/(1-2/3)=1.",
+                "For k>=1, P(R>k)=sum_{j>=k+1}2^(-j)=2^(-k).",
+                "By independence, P(R>G)=sum_{k>=1}P(G=k)*P(R>k)=sum_{k>=1}(1/3)*(2/3)^(k-1)*2^(-k).",
+                "Rewrite each term as (1/6)*(1/3)^(k-1). The series sums to (1/6)/(1-1/3)=1/4.",
+                "As a check, P(R=G)=sum_{k>=1}2^(-k)*(1/3)*(2/3)^(k-1)=1/4. Also P(G>k)=(2/3)^k, so P(G>R)=sum_{k>=1}2^(-k)*(2/3)^k=sum_{k>=1}(1/3)^k=1/2. The three probabilities sum to one and the two strict-order probabilities differ."
+              ]
+            }
+          ],
+          "method": "Manually constructed by changing only the green marginal from geometric(1/2) to geometric(1/3) on {1,2,...}. Retained the original red law, independence, bin labels, and ordering-question wording. Calculated the valid C1 solution and an explicit counterexample to swap invariance. Kept strategy cues outside the problem statement; a proposed separate experimental cue is 'Consider swap symmetry and account for ties', which names the strategy without asserting the false equality."
+        }
       }
     ]
   },
   "expert_review": {
     "reviewer": "Mayssa",
     "decision": "accept",
-    "comments": "Accepted at the original-problem collection stage. Mayssa confirms that A1 (direct favorable-mass calculation) and A2 (swap symmetry and tie correction) are valid and genuinely different approaches, and approves grouping the completed A3 derivation with A1. The approved grouping is C1={A1,A3} and C2={A2}. A4 remains incomplete and unassigned. Tp and Tc remain preliminary ideas with variant=null; neither transformation is validated by this review."
+    "comments": "Accepted at the original-problem collection stage. Mayssa confirms that A1 (direct favorable-mass calculation) and A2 (swap symmetry and tie correction) are valid and genuinely different approaches, and approves grouping the completed A3 derivation with A1. The approved grouping is C1={A1,A3} and C2={A2}. A4 remains incomplete and unassigned. Mayssa selected the second-head stopping-procedure Tp and the unequal-geometric Tc for implementation. Both now have developed statements and worked solutions, recorded as drafts. The existing acceptance covers the original problem and clustering; it does not certify the newly supplied transformation derivations. Separate expert mathematical validation of these drafts remains pending."
   }
 }
