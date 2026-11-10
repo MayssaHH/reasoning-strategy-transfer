@@ -64,7 +64,7 @@
       "solution_check": "For M=min(R,G), P(M=k)=P(M>=k)-P(M>=k+1)=4^(-(k-1))-4^(-k)=3*4^(-k). Also P(R>G,M=k)=P(G=k,R>k)=4^(-k). Hence P(R>G|M=k)=1/3 for every k, and averaging gives 1/3.",
       "validity_check": {
         "status": "valid",
-        "reason": "Condition on the minimum occupied bin and compute the conditional ordering probability.\n\nIssues noted in the review:\n- Validity is supported by this completion, but a separate mechanism is not yet established. The numerator is exactly the favorable mass used in A1, and averaging can undo the conditioning algebraically. A stronger first-arrival/memoryless derivation could warrant a separate cluster; it should be supplied, not inferred.\n\nReview additions or clarifications:\n- Derived the minimum distribution and constant conditional probability, which the source only outlines."
+        "reason": "Condition on the minimum occupied bin and compute the conditional ordering probability.\n\nClustering decision:\n- The completed derivation belongs with A1: its numerator is the same favorable mass P(G=k,R>k)=4^(-k), and averaging over the minimum recombines those masses. The extra conditioning reorganizes the direct calculation rather than establishing another essential mechanism.\n\nReview additions or clarifications:\n- Derived the minimum distribution and constant conditional probability, which the source only outlines. The grouping assesses this supplied completion, not a hypothetical alternative memorylessness proof."
       }
     },
     {
@@ -91,10 +91,11 @@
       {
         "cluster_id": "C1",
         "approach_ids": [
-          "A1"
+          "A1",
+          "A3"
         ],
-        "mechanism": "Direct favorable-mass summation",
-        "reason": "One explicit direct-summation route."
+        "mechanism": "Direct favorable-mass calculation, including conditioning on the minimum",
+        "reason": "A1 directly sums favorable masses. The completed A3 derivation uses the same masses inside conditional probabilities and then averages over the minimum. The conditioning changes the organization of the calculation, not its essential mechanism."
       },
       {
         "cluster_id": "C2",
@@ -106,10 +107,6 @@
       }
     ],
     "unassigned": [
-      {
-        "approach_id": "A3",
-        "reason": "Executable conditional-minimum plan, but its additional mechanism beyond A1 needs adjudication."
-      },
       {
         "approach_id": "A4",
         "reason": "Formula/derivation unspecified; misleading normalization language."
@@ -129,8 +126,8 @@
           "A1",
           "A3"
         ],
-        "verdict": "uncertain",
-        "reason": "The minimum is a different conditioning statistic, but the straightforward completion reuses the exact A1 favorable masses."
+        "verdict": "same",
+        "reason": "Both compute P(G=k,R>k)=4^(-k) and combine the resulting favorable masses. A3 introduces the minimum and conditional probabilities, but its averaging reconstructs the direct calculation."
       },
       {
         "approach_ids": [
@@ -146,7 +143,7 @@
           "A3"
         ],
         "verdict": "different",
-        "reason": "The written completion of A3 computes a conditional law and does not rely on red-green swapping; whether A3 adds a cluster beyond A1 remains open."
+        "reason": "A2 obtains the target probability through red-green swap symmetry and tie correction. The completed A3 derivation instead calculates favorable masses through conditioning, placing it with A1 in C1."
       },
       {
         "approach_ids": [
@@ -172,7 +169,7 @@
       "A1",
       "A2"
     ],
-    "reason": "A1 and A2 provide a defensible pair regardless of whether A3 becomes a third cluster or A4 is completed."
+    "reason": "A1 and A2 establish two valid, genuinely different routes: direct favorable-mass calculation versus swap symmetry and tie correction. A3 belongs with A1 in C1; incomplete A4 is not counted as an additional cluster."
   },
   "transformations": {
     "Tp": [
@@ -209,6 +206,6 @@
   "expert_review": {
     "reviewer": "Mayssa",
     "decision": "accept",
-    "comments": "Accepted at the original-problem collection stage. Mayssa confirms that A1 (direct favorable-mass summation) and A2 (swap symmetry and tie correction) are mathematically valid and genuinely different approaches, supporting C1={A1} and C2={A2}. This approval is limited to A1, A2, and their distinctness; it does not establish an exhaustive clustering. A3 remains unassigned pending a distinctness assessment, and A4 remains incomplete and unassigned. Tp and Tc remain preliminary ideas with variant=null; neither transformation is validated by this review."
+    "comments": "Accepted at the original-problem collection stage. Mayssa confirms that A1 (direct favorable-mass calculation) and A2 (swap symmetry and tie correction) are valid and genuinely different approaches, and approves grouping the completed A3 derivation with A1. The approved grouping is C1={A1,A3} and C2={A2}. A4 remains incomplete and unassigned. Tp and Tc remain preliminary ideas with variant=null; neither transformation is validated by this review."
   }
 }
